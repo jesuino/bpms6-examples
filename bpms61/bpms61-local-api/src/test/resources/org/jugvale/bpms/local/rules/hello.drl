@@ -1,0 +1,13 @@
+//created on: Sep 17, 2015
+package org.jugvale.bpms.local.rules
+
+
+rule "Simple Test Rule"
+
+    when
+        //conditions
+    then
+        //actions
+        System.out.println("Hello World Rule");
+
+end
