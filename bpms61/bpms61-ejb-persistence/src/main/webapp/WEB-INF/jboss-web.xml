@@ -1,0 +1,3 @@
+<jboss-web>
+    <context-root>bpms61-ejb-persistence</context-root>
+</jboss-web>

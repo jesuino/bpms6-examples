@@ -3,7 +3,6 @@ package org.jugvale.bpms.local.bc;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.Product;
 import org.drools.core.io.impl.UrlResource;
 import org.junit.Test;
 import org.kie.api.KieServices;
@@ -39,11 +38,11 @@ public class MavenArtifactTest {
 		KieModule kModule = kr.addKieModule(ks.getResources().newInputStreamResource(is));
 		KieContainer kc = ks.newKieContainer(kModule.getReleaseId());
 		// This fact was created using Data Modeller in business central
-		Product p = new Product();
-		p.setName("Table");
-		p.setPrice(500f);
+	//	Product p = new Product();
+	//	p.setName("Table");
+	//	p.setPrice(500f);
 		KieSession kSession = kc.newKieSession();
-		kSession.insert(p);
+	//	kSession.insert(p);
 		kSession.fireAllRules();
 	}
 
