@@ -1,4 +1,4 @@
-package org.jugvale.bpms.local.classpath;
+package org.fxapps.bpms.local.classpath;
 
 import java.util.logging.Logger;
 
@@ -7,17 +7,15 @@ import org.kie.api.KieServices;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 
-public class SubProcessSignalTest {
-	
+public class RuleTest {
 	Logger logger = Logger.getLogger(getClass().getName());
-
 
 	@Test
 	public void doTest() {
-		logger.info("Testing simple process without persistence");
+		logger.info("Running simple test to run rules");
 		KieContainer kc = KieServices.Factory.get().getKieClasspathContainer();
-		KieSession ksession = kc.getKieBase("SubProcessSignalKB").newKieSession();
-		ksession.startProcess("TestProject.TestProcess");
+		KieSession ksession = kc.getKieBase("TestRulesKB").newKieSession();
+		ksession.fireAllRules();
 		ksession.dispose();
 	}
 

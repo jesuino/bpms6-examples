@@ -1,4 +1,4 @@
-package org.jugvale.bpms.local.classpath;
+package org.fxapps.bpms.local.classpath;
 
 import java.util.logging.Logger;
 
@@ -16,7 +16,7 @@ import org.kie.internal.KnowledgeBaseFactory;
 import org.kie.internal.persistence.jpa.JPAKnowledgeService;
 import org.kie.internal.runtime.StatefulKnowledgeSession;
 
-public class ProcessMySQLPersistenceTest {
+public class ProcessPersistenceTest {
 	
 	Logger logger = Logger.getLogger(getClass().getName());
 	

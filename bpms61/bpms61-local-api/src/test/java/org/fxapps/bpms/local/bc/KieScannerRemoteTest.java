@@ -1,4 +1,4 @@
-package org.jugvale.bpms.local.bc;
+package org.fxapps.bpms.local.bc;
 
 import org.drools.compiler.kproject.ReleaseIdImpl;
 import org.drools.core.io.impl.UrlResource;
@@ -16,20 +16,20 @@ import org.kie.api.runtime.KieSession;
  * @author wsiqueir
  * 
  */
-public class KieScannerTest {
+public class KieScannerRemoteTest {
 
 	// The group of the maven artifact
-	final static String G = "org.kie.example";
+	final static String G = "validatelendermanifestloan";
 	// the artifact id
-	final static String A = "project1";
+	final static String A = "validatelendermanifestloan";
 	// *-SNAPSHOT versions can be used for updates based on the artifact
 	// timestamp
 	// LATEST version will always bring the latest version of the artifact
-	final static String V = "1.0.0-SNAPSHOT";
+	final static String V = "0.0.1";
 
 	@Test
 	public void doTest() throws InterruptedException {
-		new UrlResource();
+		//System.setProperty("kie.maven.settings.custom", value)
 		KieServices kieServices = KieServices.Factory.get();
 		ReleaseIdImpl releaseId = new ReleaseIdImpl(G, A, V);
 		KieContainer kContainer = KieServices.Factory.get().newKieContainer(

@@ -1,4 +1,4 @@
-package org.jugvale.bpms.local.bc;
+package org.fxapps.bpms.local.bc;
 
 import java.io.IOException;
 import java.io.InputStream;
