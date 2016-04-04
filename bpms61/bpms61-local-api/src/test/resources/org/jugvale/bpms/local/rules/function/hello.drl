@@ -1,0 +1,19 @@
+//created on: Sep 17, 2015
+package org.jugvale.bpms.local.rules
+
+dialect "mvel"
+
+function boolean test() {
+	return true;
+}
+
+rule "Function Rule"
+
+    when
+        eval(test())
+    then
+        //actions
+        System.out.println("Hello World Rule");
+end
+
+

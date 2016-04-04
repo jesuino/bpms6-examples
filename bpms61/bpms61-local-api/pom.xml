@@ -65,6 +65,10 @@
 			<artifactId>kie-internal</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-ci</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.jbpm</groupId>
 			<artifactId>jbpm-audit</artifactId>
 		</dependency>
