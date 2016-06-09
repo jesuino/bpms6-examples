@@ -10,6 +10,3 @@ buildNumber.properties
 .project
 .settings
 bin/
-.attach_pid*
-*.log
-*.tlog
