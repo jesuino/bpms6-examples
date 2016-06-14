@@ -1,5 +1,7 @@
 package com.redhat.gss.bpms;
 
+import java.util.List;
+
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -8,6 +10,7 @@ import org.kie.api.runtime.manager.RuntimeEnvironment;
 import org.kie.api.runtime.manager.RuntimeEnvironmentBuilder;
 import org.kie.api.runtime.manager.RuntimeManager;
 import org.kie.api.runtime.manager.RuntimeManagerFactory;
+import org.kie.api.task.UserGroupCallback;
 import org.kie.internal.io.ResourceFactory;
 
 import bitronix.tm.resource.jdbc.PoolingDataSource;
@@ -54,10 +57,31 @@ public class Util {
 		RuntimeEnvironment env = RuntimeEnvironmentBuilder.Factory
 				.get()
 				.newDefaultBuilder()
+				.userGroupCallback(new UserGroupCallback() {
+
+					@Override
+					public List<String> getGroupsForUser(String userId,
+							List<String> groupIds,
+							List<String> allExistingGroupIds) {
+						return null;
+					}
+
+					@Override
+					public boolean existsUser(String userId) {
+						return true;
+					}
+
+					@Override
+					public boolean existsGroup(String groupId) {
+						return true;
+					}
+				})
 				.entityManagerFactory(emf)
 				.addAsset(
 						ResourceFactory
 								.newClassPathResource("helloProcess.bpmn2"),
+						ResourceType.BPMN2)
+				.addAsset(ResourceFactory.newClassPathResource("HT.bpmn2"),
 						ResourceType.BPMN2).get();
 		RuntimeManager manager = RuntimeManagerFactory.Factory.get()
 				.newSingletonRuntimeManager(env);
