@@ -4,14 +4,11 @@ import java.util.List;
 
 import org.jbpm.process.audit.JPAAuditLogService;
 import org.jbpm.process.audit.query.NodeInstLogQueryBuilderImpl;
-import org.jbpm.process.audit.query.VarInstLogQueryBuilderImpl;
 import org.kie.api.runtime.manager.RuntimeEngine;
 import org.kie.api.runtime.manager.RuntimeManager;
 import org.kie.api.runtime.manager.audit.NodeInstanceLog;
-import org.kie.api.runtime.manager.audit.VariableInstanceLog;
 import org.kie.internal.query.ParametrizedQuery;
 import org.kie.internal.runtime.manager.audit.query.NodeInstanceLogQueryBuilder;
-import org.kie.internal.runtime.manager.audit.query.VariableInstanceLogQueryBuilder;
 import org.kie.internal.runtime.manager.context.EmptyContext;
 
 import com.redhat.gss.bpms.Util;
