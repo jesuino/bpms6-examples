@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.redhat.gss.bpms</groupId>
-	<artifactId>bpms63-query-builder-sample</artifactId>
+	<groupId>org.fxapps.bpms</groupId>
+	<artifactId>bpms62-node-instance-query</artifactId>
 	<version>1.0</version>
 
 	<properties>

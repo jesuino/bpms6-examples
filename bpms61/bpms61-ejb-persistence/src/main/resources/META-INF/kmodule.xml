@@ -2,7 +2,7 @@
 <kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://jboss.org/kie/6.0.0/kmodule">
 
-	<kbase name="TestProcessKB" packages="com.redhat.gss">
+	<kbase name="TestProcessKB" packages="org.fxapps.bpms">
 		<ksession name="TestProcessKS" default="true" />
 	</kbase>
 </kmodule>

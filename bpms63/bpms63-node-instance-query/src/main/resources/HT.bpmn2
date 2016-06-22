@@ -4,7 +4,7 @@
   <bpmn2:itemDefinition id="ItemDefinition_1" isCollection="false" structureRef="String"/>
   <bpmn2:itemDefinition id="ItemDefinition_2" isCollection="false" structureRef="Integer"/>
   <bpmn2:itemDefinition id="ItemDefinition_3" isCollection="false" structureRef="Boolean"/>
-  <bpmn2:process id="com.redhat.gss.bpms.HT" tns:packageName="com.redhat.gss.bpms" name="HT" isExecutable="true" processType="Private">
+  <bpmn2:process id="org.fxapps.bpms.HT" tns:packageName="org.fxapps.bpms" name="HT" isExecutable="true" processType="Private">
     <bpmn2:startEvent id="StartEvent_1" name="StartProcess">
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
@@ -85,22 +85,22 @@
     <bpmn2:sequenceFlow id="SequenceFlow_2" tns:priority="1" sourceRef="UserTask_1" targetRef="EndEvent_1"/>
   </bpmn2:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="com.redhat.gss.bpms.HT">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="org.fxapps.bpms.HT">
       <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="StartEvent_1">
         <dc:Bounds height="0.0" width="0.0" x="45.0" y="45.0"/>
-        <bpmndi:BPMNLabel labelStyle="#//@definitions/@diagrams.0/@labelStyle.0">
+        <bpmndi:BPMNLabel id="BPMNLabel_1" labelStyle="BPMNLabelStyle_1">
           <dc:Bounds height="14.0" width="69.0" x="29.0" y="81.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_UserTask_1" bpmnElement="UserTask_1">
         <dc:Bounds height="50.0" width="110.0" x="186.0" y="38.0"/>
-        <bpmndi:BPMNLabel labelStyle="#//@definitions/@diagrams.0/@labelStyle.0">
+        <bpmndi:BPMNLabel id="BPMNLabel_2" labelStyle="BPMNLabelStyle_1">
           <dc:Bounds height="14.0" width="67.0" x="207.0" y="56.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="EndEvent_1">
         <dc:Bounds height="36.0" width="36.0" x="364.0" y="45.0"/>
-        <bpmndi:BPMNLabel labelStyle="#//@definitions/@diagrams.0/@labelStyle.0">
+        <bpmndi:BPMNLabel id="BPMNLabel_3" labelStyle="BPMNLabelStyle_1">
           <dc:Bounds height="14.0" width="66.0" x="349.0" y="81.0"/>
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
@@ -108,16 +108,16 @@
         <di:waypoint xsi:type="dc:Point" x="81.0" y="63.0"/>
         <di:waypoint xsi:type="dc:Point" x="133.0" y="63.0"/>
         <di:waypoint xsi:type="dc:Point" x="186.0" y="63.0"/>
-        <bpmndi:BPMNLabel labelStyle="#//@definitions/@diagrams.0/@labelStyle.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4" labelStyle="BPMNLabelStyle_1"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="SequenceFlow_2" sourceElement="BPMNShape_UserTask_1" targetElement="BPMNShape_EndEvent_1">
         <di:waypoint xsi:type="dc:Point" x="296.0" y="63.0"/>
         <di:waypoint xsi:type="dc:Point" x="330.0" y="63.0"/>
         <di:waypoint xsi:type="dc:Point" x="364.0" y="63.0"/>
-        <bpmndi:BPMNLabel labelStyle="#//@definitions/@diagrams.0/@labelStyle.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5" labelStyle="BPMNLabelStyle_1"/>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
-    <bpmndi:BPMNLabelStyle>
+    <bpmndi:BPMNLabelStyle id="BPMNLabelStyle_1">
       <dc:Font name="arial" size="9.0"/>
     </bpmndi:BPMNLabelStyle>
   </bpmndi:BPMNDiagram>
