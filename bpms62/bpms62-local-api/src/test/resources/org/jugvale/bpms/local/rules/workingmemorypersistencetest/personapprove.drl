@@ -1,0 +1,21 @@
+package org.jugvale.bpms.local.workingmemorypersistencetest
+
+import org.fxapps.bpms.model.Person;
+
+rule "Approve person older than 18 years"
+
+    when
+        p: Person(approved == false, age >= 18);
+    then
+        p.setApproved(true);
+        System.out.println("Person " + p.getName() + " approved!");
+end
+
+
+rule "Not approving"
+	no-loop 
+    when
+        p: Person(approved == false, age < 18);
+    then
+        System.out.println("Person " + p.getName() + " *NOT* approved!");
+end
