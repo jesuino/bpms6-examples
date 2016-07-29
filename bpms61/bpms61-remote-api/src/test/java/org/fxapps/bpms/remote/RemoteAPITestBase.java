@@ -8,7 +8,7 @@ import org.kie.remote.client.api.RemoteRuntimeEngineFactory;
 
 public abstract class RemoteAPITestBase {
 
-	protected static final String DEPLOYMENT_ID = "test:proj1:1.0";
+	protected static final String DEPLOYMENT_ID = "org.kie.example:project1:1.0";
 	protected static final String APP_URL = "http://localhost:8080/business-central";
 	protected static final String USER = "jesuino";
 	protected static final String PASSWORD = "redhat2014!";
