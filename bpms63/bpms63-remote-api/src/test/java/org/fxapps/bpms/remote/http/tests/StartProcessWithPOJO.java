@@ -14,6 +14,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import org.apache.commons.codec.binary.Base64;
+import org.fxapps.bpms.Product;
 import org.jboss.resteasy.client.ClientRequest;
 import org.jboss.resteasy.client.ClientRequestFactory;
 import org.jboss.resteasy.client.ClientResponse;
@@ -40,11 +41,11 @@ public class StartProcessWithPOJO {
 	  /*
 	   * Set the parameters according your installation
 	   */
-	  private static final String DEPLOYMENT_ID = "com.mycompany:remote-process-start-with-bean:1.0";
-	  private static final String PROCESS_ID = "remote-process-start-with-bean.process_that_uses_mypojo";
-	  private static final String PROCESS_PARAM_NAME = "myPOJO";
+	  private static final String DEPLOYMENT_ID = "org.fxapps.bpms:fxapps-project:1.0";
+	  private static final String PROCESS_ID = "fxapps-project.printProduct";
+	  private static final String PROCESS_PARAM_NAME = "v_prod";
 	  private static final String APP_URL = "http://localhost:8080/business-central/rest";
-	  private static final String USER = "jesuino";
+	  private static final String USER = "bpmsAdmin";
 	  private static final String PASSWORD = "redhat2014!";
 
 
@@ -56,7 +57,8 @@ public class StartProcessWithPOJO {
 	        StartProcessCommand startProcessCommand = new StartProcessCommand();
 	        JaxbStringObjectPairArray params = new JaxbStringObjectPairArray();
 	        // Add your process parameters here
-	        //params.getItems().add(new JaxbStringObjectPair(PROCESS_PARAM_NAME, new MyPOJO("My POJO TESTING")));
+	        Product prod = new Product(10, "Bread", 10f);
+	        params.getItems().add(new JaxbStringObjectPair(PROCESS_PARAM_NAME, prod));
 	        startProcessCommand.setProcessId(PROCESS_ID);
 	        startProcessCommand.setParameter(params);
 	        commands.add(startProcessCommand);
@@ -98,7 +100,7 @@ public class StartProcessWithPOJO {
 	 
 	    static String convertJaxbObjectToString(Object object) throws JAXBException {
 	    	// TODO: Add here your classes
-	        Class<?>[] classesToBeBound = { JaxbCommandsRequest.class, /*MyPOJO.class*/ };
+	        Class<?>[] classesToBeBound = { JaxbCommandsRequest.class, Product.class };
 	        Marshaller marshaller = JAXBContext.newInstance(classesToBeBound)
 	                .createMarshaller();
 	        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);

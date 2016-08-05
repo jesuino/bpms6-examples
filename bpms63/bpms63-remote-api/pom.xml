@@ -61,6 +61,12 @@
 		<dependency>
 			<groupId>org.kie.remote</groupId>
 			<artifactId>kie-remote-client</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.xml.bind</groupId>
+					<artifactId>jaxb-core</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.kie</groupId>
@@ -87,19 +93,14 @@
 			<groupId>org.jboss.xnio</groupId>
 			<artifactId>xnio-nio</artifactId>
 		</dependency>
-		<!-- Dependency for some samples, like StartProcessWithPOJO - you must install 
-			a kjar locally to have it working
-		<dependency>
-			<artifactId>remote-process-start-with-bean</artifactId>
-			<groupId>com.mycompany</groupId>
-			<version>1.0</version>
-		</dependency>
-		 -->
+		<!-- Dependency for some samples, like StartProcessWithPOJO - you must 
+			install a kjar locally to have it working <dependency> <artifactId>remote-process-start-with-bean</artifactId> 
+			<groupId>com.mycompany</groupId> <version>1.0</version> </dependency> -->
 		<!-- Dependency for the sample SignalProcessWithPOJO - you must install 
 			a kjar locally to have it working -->
 		<dependency>
-			<artifactId>proj1</artifactId>
-			<groupId>test</groupId>
+			<groupId>org.fxapps.bpms</groupId>
+			<artifactId>fxapps-project</artifactId>
 			<version>1.0</version>
 		</dependency>
 	</dependencies>
