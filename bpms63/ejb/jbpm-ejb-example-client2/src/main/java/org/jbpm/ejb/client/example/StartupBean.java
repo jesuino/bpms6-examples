@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 @Startup
 public class StartupBean {
 	
-	static final String DEPLOYMENT_ID = "example:project1:1.0";
+	static final String DEPLOYMENT_ID = "example:jbpm-ejb-example-kjar:1.0";
 	
 	@EJB(lookup="java:global/jbpm-ejb-example/DeploymentServiceEJBImpl!org.jbpm.services.ejb.api.DeploymentServiceEJBRemote")
 	DeploymentServiceEJBRemote deploymentService;

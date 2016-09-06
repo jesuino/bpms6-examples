@@ -6,13 +6,14 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
 
 import org.jbpm.services.ejb.api.RuntimeDataServiceEJBRemote;
 import org.jbpm.services.ejb.api.UserTaskServiceEJBRemote;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Path("/")
+@Path("/task")
 @Stateless
 public class TaskResource {
 	
@@ -30,7 +31,7 @@ public class TaskResource {
 
 
 	@POST
-	public void startProcessAndCompleteTask (long piid) {
+	public void startProcessAndCompleteTask (@QueryParam("piid") long piid) {
 		log.info("Getting tasks for piid " + piid);
 		List<Long> tasks = runtimeDataService.getTasksByProcessInstanceId(piid);
 		for (Long taskId : tasks) {

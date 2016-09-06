@@ -9,11 +9,11 @@ import org.jbpm.services.ejb.api.ProcessServiceEJBRemote;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Path("/")
+@Path("/process")
 @Stateless
 public class ProcessResource {
 	
-	private static final String PROCESS_DEF = "project1.ht";
+	private static final String PROCESS_DEF = "SampleProcessforEJBTest.ht";
 
 	@EJB(lookup = "java:global/jbpm-ejb-example/ProcessServiceEJBImpl!org.jbpm.services.ejb.api.ProcessServiceEJBRemote")
     private ProcessServiceEJBRemote processService;
