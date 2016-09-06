@@ -12,6 +12,8 @@
 		<version.org.jboss.bom.brms>6.3.0.GA-redhat-3</version.org.jboss.bom.brms>
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<maven.compiler.source>1.7</maven.compiler.source>
+		<version.jboss.maven.plugin>7.5.Final</version.jboss.maven.plugin>
+		<target.server.group>main-server-group</target.server.group>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -94,5 +96,20 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jboss.as.plugins</groupId>
+				<artifactId>jboss-as-maven-plugin</artifactId>
+				<version>${version.jboss.maven.plugin}</version>
+				<configuration>
+					<server-groups>
+						<server-group>${target.server.group}</server-group>
+					</server-groups>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
