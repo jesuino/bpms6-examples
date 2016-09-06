@@ -104,9 +104,11 @@
 				<artifactId>jboss-as-maven-plugin</artifactId>
 				<version>${version.jboss.maven.plugin}</version>
 				<configuration>
-					<server-groups>
-						<server-group>${target.server.group}</server-group>
-					</server-groups>
+					<domain>
+						<server-groups>
+							<server-group>${target.server.group}</server-group>
+						</server-groups>
+					</domain>
 				</configuration>
 			</plugin>
 		</plugins>
