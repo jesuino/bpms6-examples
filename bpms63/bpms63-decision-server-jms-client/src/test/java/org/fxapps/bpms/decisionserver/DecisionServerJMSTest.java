@@ -33,10 +33,6 @@ import org.kie.server.client.RuleServicesClient;
 public class DecisionServerJMSTest {
 
 	/**
-	 * Decision Server URL
-	 */
-	private static final String URL = "http://localhost:8180/kie-server/services/rest/server";
-	/**
 	 * Decision Server User in role "kie-server"
 	 */
 	private static final String USER = "kieserver";
