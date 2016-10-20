@@ -3,6 +3,8 @@ package org.fxapps.bpms.decisionserver;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.jms.ConnectionFactory;
+import javax.jms.Queue;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
@@ -61,20 +63,26 @@ public class DecisionServerJMSTest {
 
 	@Before
 	public void initialize() throws NamingException {
+		// FIRST WAY: Using the initial context
 		java.util.Properties env = new java.util.Properties();
 		env.put(javax.naming.Context.INITIAL_CONTEXT_FACTORY,
 				"org.jboss.naming.remote.client.InitialContextFactory");
 		env.put(javax.naming.Context.PROVIDER_URL, "remote://localhost:4447");
-		// the same user used in kie server will be against the remote server - 
-		// make sure the user has the role "admin" or modify the roles for JMS security in standalone.xml
+		// the same user used in kie server will be against the remote server -
+		// make sure the user has the role "admin" or modify the roles for JMS
+		// security in standalone.xml
 		env.put(javax.naming.Context.SECURITY_PRINCIPAL, USER);
 		env.put(javax.naming.Context.SECURITY_CREDENTIALS, PASSWORD);
-		InitialContext initialContext = new InitialContext(env);
+		InitialContext ctx = new InitialContext(env);
+
+		// SECOND WAY: Lookup queues to build the configuration
+		ConnectionFactory conn = (ConnectionFactory) ctx.lookup("jms/RemoteConnectionFactory");
+		Queue reqQueue = (Queue) ctx.lookup("jms/queue/KIE.SERVER.REQUEST");
+		Queue respQueue = (Queue) ctx.lookup("jms/queue/KIE.SERVER.RESPONSE");
 		
-		
-		conf = KieServicesFactory.newJMSConfiguration(initialContext, USER,
-				PASSWORD);
-//		conf.setServerUrl(URL);
+		// Use the configuration you want
+		conf = KieServicesFactory.newJMSConfiguration(conn, reqQueue, respQueue, USER, PASSWORD);
+		//conf = KieServicesFactory.newJMSConfiguration(ctx, USER, PASSWORD);
 		conf.setMarshallingFormat(FORMAT);
 		kieServicesClient = KieServicesFactory.newKieServicesClient(conf);
 	}
