@@ -29,7 +29,8 @@ public class ListContainersResource {
 
 
 	
-	@Resource(mappedName = "java:/JmsXA")
+//	@Resource(mappedName = "java:/JmsXA")
+	@Resource(mappedName = "java:/ConnectionFactory")
 	private ConnectionFactory connectionFactory;
 
 	@Resource(mappedName = "java:/queue/KIE.SERVER.REQUEST")
