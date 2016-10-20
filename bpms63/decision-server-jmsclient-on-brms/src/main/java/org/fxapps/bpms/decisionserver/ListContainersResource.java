@@ -21,10 +21,14 @@ import org.kie.server.client.KieServicesFactory;
 @Path("list-containers-resource")
 public class ListContainersResource {
 
+	private static final String URL = "http://localhost:8080/kie-server/services/rest/server";
+
 	private static final String USER = "kieserver";
 
 	private static final String PSW = "kieserver1!";
 
+
+	
 	@Resource(mappedName = "java:/JmsXA")
 	private ConnectionFactory connectionFactory;
 
@@ -36,9 +40,20 @@ public class ListContainersResource {
 	
 	
 	@POST
+	@Path("jms")
 	@Produces("application/json")
-	public List<KieContainerResource> execute(){
+	public List<KieContainerResource> executeUsingJMS(){
 		KieServicesConfiguration conf = KieServicesFactory.newJMSConfiguration(connectionFactory, reqQueue, respQueue, USER, PSW);
+		conf.setMarshallingFormat(MarshallingFormat.JSON);
+		KieServicesClient client = KieServicesFactory.newKieServicesClient(conf);
+		return client.listContainers().getResult().getContainers();
+	}
+	
+	@POST
+	@Path("rest")
+	@Produces("application/json")
+	public List<KieContainerResource> executeUsingREST(){
+		KieServicesConfiguration conf = KieServicesFactory.newRestConfiguration(URL, USER, PSW);
 		conf.setMarshallingFormat(MarshallingFormat.JSON);
 		KieServicesClient client = KieServicesFactory.newKieServicesClient(conf);
 		return client.listContainers().getResult().getContainers();
