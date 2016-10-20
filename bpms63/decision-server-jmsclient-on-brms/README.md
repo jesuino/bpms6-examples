@@ -3,6 +3,10 @@
 
 A simple client for Decision Server (product name for Kie Server) running on the same server where JBoss BRMS and Decision Server are running.
 
+### Configuration
+
+Make sure the user `kieserver` with password `kieserver1!` exists and has the roles `kie-server`, `rest-all` and `admin` (or guest, depending on your JMS configuration).
+
 ### Building and deploy
 
 Make sure JBoss BRMS on EAP is running locally and using default ports numbers and then run `$ mvn clean package jboss-as:deploy`. 
@@ -18,3 +22,5 @@ You can also test the REST client using the follow curl command:
 ~~~
 curl -X POST http://localhost:8080/decision-server-jmsclient-on-brms/rest/list-containers-resource/rest
 ~~~
+
+
