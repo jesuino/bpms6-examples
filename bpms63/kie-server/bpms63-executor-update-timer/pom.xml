@@ -10,6 +10,8 @@
 
 	<properties>
 		<jbpm-version>6.4.0.Final-redhat-13</jbpm-version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 	<dependencies>
 		<dependency>

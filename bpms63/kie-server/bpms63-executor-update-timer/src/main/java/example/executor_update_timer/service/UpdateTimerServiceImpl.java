@@ -40,6 +40,7 @@ class UpdateTimerServiceImpl implements UpdateTimerService {
 		dispose(runtimeEngine);
 	}
 
+	// not tested!
 	public void updateTimerNode(Long piid, String identifier, long delay,
 			long period, int repeatLimit) {
 		RuntimeEngine runtimeEngine = getRuntimeEngine(identifier, piid);
@@ -65,6 +66,10 @@ class UpdateTimerServiceImpl implements UpdateTimerService {
 	}
 
 	private TimerNodeInstance getTimerInstance(WorkflowProcessInstance pi) {
+		if(pi == null ) {
+			throw new IllegalArgumentException(
+					"Couldn't find process instance.");
+		}
 		TimerNodeInstance oldTimerInstance = null;
 		for (NodeInstance n : pi.getNodeInstances()) {
 			if (n instanceof TimerNodeInstance)

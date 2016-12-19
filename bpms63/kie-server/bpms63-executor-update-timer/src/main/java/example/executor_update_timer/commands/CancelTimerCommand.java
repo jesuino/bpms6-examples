@@ -6,17 +6,17 @@ import org.kie.api.executor.ExecutionResults;
 
 /**
  * 
- * If a process instance is stopped on a timer we can set it as triggered and
- * make the process skip it.
+ * If the given process instance Id is stopped at a timer node, this will cancel it
  * 
  * @author wsiqueir
  *
  */
-public class SetTimerAsTriggeredCommand extends AbstractTimerActionCommand
-		implements Command {
+public class CancelTimerCommand extends AbstractTimerActionCommand implements Command {
+
+	
 
 	public ExecutionResults execute(CommandContext ctx) throws Exception {
-		return super.execute(ctx, updateTimerService::setAsTriggered);
+		return super.execute(ctx, updateTimerService::cancelTimer);
 	}
 
 }
