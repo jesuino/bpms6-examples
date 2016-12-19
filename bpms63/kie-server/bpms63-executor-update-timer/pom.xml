@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>example</groupId>
+	<artifactId>bpms63-executor-update-timer</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+
+	<properties>
+		<jbpm-version>6.4.0.Final-redhat-13</jbpm-version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-executor</artifactId>
+			<version>${jbpm-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-kie-services</artifactId>
+			<version>${jbpm-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-flow</artifactId>
+			<version>${jbpm-version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>
